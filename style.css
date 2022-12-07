@@ -1,0 +1,8 @@
+body {
+    font-family: 'Poppins',sans-serif;
+  }
+  .small {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0 auto;
+  }
