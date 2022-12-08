@@ -1,6 +1,8 @@
 // API key and Secret key
 const key = "X36ZOwMdQHQULSUcBHhOE27bY9uyL5NDYpAAVq3KehhZdAX8bt";
 const secretKey = "bGrEU0kTzrrUPrycDWXj4NQgwWon4CPgoGkHqlOB";
+
+// valid zipcode must equal 5 numbers
 const validZip = /^\d{5}$/;
 
 let token;
@@ -47,7 +49,7 @@ function updateUI(animalInfo) {
     <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title fw-bold">${animal.name}  (${animal.age})</h4>
-        <p class="text-secondary">${animal.breeds.primary}  (${animal.gender})</p>
+        <p class="text-secondary">${animal.breeds.primary}  (<i class="bi bi-gender-ambiguous"></i>${animal.gender})</p>
         <p>${animal.contact.address.address1}, ${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}</p>
         <ul class="list-group">
         <li class="list-group-item">Phone: ${animal.contact.phone}</li> 
@@ -64,7 +66,7 @@ function updateUI(animalInfo) {
     `;
   });
 }
-//<img src=${image} class="small rounded">
+
 // Fetch animals from the API
 function fetchAnimals(animal, zip) {
   // fetch pets

@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@petfinder/petfinder-js": "^1.0.6"
+    "@petfinder/petfinder-js": "^1.0.6",
+    "bootstrap-icons": "^1.10.2"
   }
 }
