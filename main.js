@@ -29,37 +29,47 @@ const results = document.getElementById('results');
 function updateUI(animalInfo) {
   results.innerHTML = '<div></div>';
   animalInfo.forEach(animal => {
+
     let image;
     if (animal.photos.length > 0) {
       image = animal.photos[0].medium;
     } else {
-      image = "<a href='https://www.petfinder.com'><img src='https://www.petfinder.com//banner-images/widgets/40.jpg' border='0' alt='Petfinder Logo, Adopt a homeless pet' /></a>";
+      image = "<a href='https://www.petfinder.com'><img src='https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59078164/1/?bust=1670408053&width=720' border='0' alt='This pet is preparing for their photo shoot! Pictures coming soon!' /></a>";
     }
     results.innerHTML += `
-      <div class="card">
-        <img src=${image} class="small rounded">
-        <div class="card-body">
-          <h3 class="card-title text-center">${animal.name}</h3>
-          <h5 class="card-text text-center">City: ${animal.contact.address.city}</h5>
-          <h6 class="card-text text-center">State: ${animal.contact.address.state}</h6>
-          <ul class="list-group">
-            <li class="list-group-item">Age: ${animal.age}</li>
-            <li class="list-group-item">Gender: ${animal.gender}</li>
-            <li class="list-group-item">Size: ${animal.size}</li>
-            <li class="list-group-item">Email: ${animal.contact.email}</li>
-            <li class="list-group-item">Phone: ${animal.contact.phone}</li>
-          </ul>
-        </div>
+ <div class="card mb-3 shadow p-3 mb-5 mb-5">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${
+        animal.photos[0] ? animal.photos[0].medium : ""
+      }" class="img-fluid rounded-start" alt="animal-image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title fw-bold">${animal.name}  (${animal.age})</h4>
+        <p class="text-secondary">${animal.breeds.primary}  (${animal.gender})</p>
+        <p>${animal.contact.address.address1}, ${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}</p>
+        <ul class="list-group">
+        <li class="list-group-item">Phone: ${animal.contact.phone}</li> 
+        ${animal.contact.email ? `<li class="List-group-item">Email: ${animal.contact.email}</li>` : ``}
+        <li class="list-group-item">Shelter ID: ${animal.organization_id}</li>
+      </ul>
+    </div>
       </div>
-      <br>
+    </div>
+  </div>
+</div>
+
+      <br> 
     `;
   });
 }
+//<img src=${image} class="small rounded">
 // Fetch animals from the API
 function fetchAnimals(animal, zip) {
   // fetch pets
   // get data using the token
-  fetch(`https://api.petfinder.com/v2/animals/?type=${animal}&contact.address.postcode=${zip}`, {
+  fetch(`https://api.petfinder.com/v2/animals?type=${animal}&location=${zip}&callback=callback`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`
