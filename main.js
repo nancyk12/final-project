@@ -33,24 +33,24 @@ function updateUI(animalInfo) {
   results.innerHTML = '<div></div>';
   animalInfo.forEach(animal => {
 
-    //let noPhoto = '<img src="pet-photo-shoot.jpeg">'
+    let noPhoto = '<a><img src="assets/pet-photo-shoot.jpeg"/></a>'
 
     let image;
     if (animal.photos.length > 0) {
-      image = animal.photos[0] ? animal.photos[0].medium : `${noPhoto}`;
+      image = animal.photos[0].medium;
     } else {
-      image = '<img src="pet-photo-shoot.jpeg">';
+      image = '<a><img src="assets/pet-photo-shoot.jpeg"/></a>';
     };
     
     results.innerHTML += `
  <div class="card mb-3 shadow p-3 mb-5 mb-5">
    <div class="row g-0">
      <div class="col-md-4">
-      <img src="${image}" alt="Pet Photo" onerror="this.src='pet-photo-shoot.jpeg'" class="img-fluid rounded-start" >
+      <img  class="img-fluid rounded-start" id="image" src="${image}" alt="Pet Photo">
      </div>
       <div class="col-md-8">
         <div class="card-body">
-        <h4 class="card-title fw-bold">${animal.name}  (${animal.age})</h4>
+        <h4 class="card-title fw-bold">${animal.name},  (${animal.age})</h4>
         <p class="text-secondary">${animal.breeds.primary}, (${animal.gender})</p>
         <p>${animal.contact.address.address1 ? `${animal.contact.address.address1}, `
         :``
