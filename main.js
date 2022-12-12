@@ -25,6 +25,7 @@ const petForm = document.getElementById('pet-form');
 const error = document.getElementById('error');
 // Access results
 const results = document.getElementById('results');
+
 // Functions
 
 // Update UI
@@ -34,35 +35,66 @@ function updateUI(animalInfo) {
 
     let image;
     if (animal.photos.length > 0) {
-      image = animal.photos[0].medium;
+      image = animal.photos[0] ? animal.photos[0].medium : "";
     } else {
-      image = "<a href='https://www.petfinder.com'><img src='https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/59078164/1/?bust=1670408053&width=720' border='0' alt='This pet is preparing for their photo shoot! Pictures coming soon!' /></a>";
-    }
+      image = "<a href='https://www.petfinder.com'><img src='https://www.petfinder.com//banner-images/widgets/40.jpg' border='0' alt='Petfinder Logo, Adopt a homeless pet' /></a>";
+    };
+
+  
+    
     results.innerHTML += `
  <div class="card mb-3 shadow p-3 mb-5 mb-5">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${
-        animal.photos[0] ? animal.photos[0].medium : ""
-      }" class="img-fluid rounded-start" alt="animal-image">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
+   <div class="row g-0">
+     <div class="col-md-4">
+      <img src="${image}" class="img-fluid rounded-start" alt="animal-image">
+     </div>
+      <div class="col-md-8">
+        <div class="card-body">
         <h4 class="card-title fw-bold">${animal.name}  (${animal.age})</h4>
-        <p class="text-secondary">${animal.breeds.primary}  (<i class="bi bi-gender-ambiguous"></i>${animal.gender})</p>
-        <p>${animal.contact.address.address1}, ${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}</p>
+        <p class="text-secondary">${animal.breeds.primary}, (${animal.gender})</p>
+        <p>${animal.contact.address.address1 ? `${animal.contact.address.address1}, `
+        :``
+      } ${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}</p>
         <ul class="list-group">
-        <li class="list-group-item">Phone: ${animal.contact.phone}</li> 
-        ${animal.contact.email ? `<li class="List-group-item">Email: ${animal.contact.email}</li>` : ``}
+        ${animal.contact.phone ?` <li class="list-group-item">Phone: ${animal.contact.phone}</li>` : `` }
+       ${animal.contact.email ?`<li class="list-group-item">Email: ${animal.contact.email}</li>` : ``}
         <li class="list-group-item">Shelter ID: ${animal.organization_id}</li>
       </ul>
     </div>
-      </div>
+     
+     </div>
     </div>
-  </div>
-</div>
+    
+    <div class="accordion" id="chapters">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading-1">
+      <button class="accordion-button btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="false" aria-controls="chapter-1">Learn more about ${animal.name}.</button></h2>
 
-      <br> 
+        <div id="chapter-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-parent="#chapters">
+          <div class="accordion-body">
+          <h4>${animal.name}'s Description</h4>
+          <p>${animal.description}</p>
+    
+          <h4>${animal.name}'s Attributes</h4>  
+            <ul class="list-group">
+            <li class="list-group-item">Declawed: ${animal.attributes.declawed}</li>
+            <li class="list-group-item">House trained: ${animal.attributes.house_trained}</li>
+            <li class="list-group-item">Shots Current: ${animal.attributes.shots_current}</li>
+            <li class="list-group-item">Spayed/Neutered: ${animal.attributes.spayed_neutered}</li>
+            <li class="list-group-item">Special Needs: ${animal.attributes.special_needs}</li>
+            </ul>
+            <a href="${animal.url}" target="_blank" rel="nopener noreferrer"><img src="assets/Adopt-Me-Button.png" id="adopt-me"></a>
+          </div>
+        </div>
+      </div>  
+    </div> 
+    
+  </div>
+
+
+    </div>
+
+
     `;
   });
 }
@@ -94,7 +126,6 @@ petForm.addEventListener('submit', e => {
   const animal = document.getElementById('animal').value;
   const zip = document.getElementById('zip').value;
     if (validZip.test(zip)) {
-    //results.innerHTML = '<div class="small"><iframe src="https://giphy.com/embed/lpOxKH3VWxTPi" width="100px" height="100px" frameBorder="0" class="giphy-embed"></iframe></div>';
     setTimeout(() => {
       fetchAnimals(animal, zip);
     }, 2000);

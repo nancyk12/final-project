@@ -1,8 +1,39 @@
 body {
-    font-family: 'Poppins',sans-serif;
+  font-family: 'Poppins',sans-serif;
+  width: 100%
+}
+.small {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto 0 auto;
   }
-  .small {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto 0 auto;
-  }
+
+#cat {
+  /*list-style-image: (assets/cat.svg);*/
+    /* OR */
+  list-style-type: '👉';
+  padding-inline-start: 1ch;
+}
+
+.accordion{
+background-color: #beae9d;
+}
+  .accordion-button {
+    z-index: 3;
+    background-color: #e7c9a9;
+    outline: 3 !important;
+    /* I changed the color on this line */
+    /* If you do not want any color, just delete */
+    box-shadow: 0 0 0 0.25rem #beae9d;
+ }
+
+ .accordion-button:focus {
+  color: white;
+  background-color: #aa6820
+ }
+
+#adopt-me {
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+}
