@@ -34,11 +34,12 @@ function updateUI(animalInfo) {
   animalInfo.forEach(animal => {
 
    // let noPhoto = '<img src="assets/pet-photo-shoot.jpeg">'
-   let image;
+   let image; 
+   //console.log(animal.photos[0].medium);
    if (animal.photos.length > 0) {
      image = animal.photos[0].medium;
    } else {
-     //image = <img src='assets/No-animal-image-available.png' border='0' alt='This pet is preparing for their photo shoot! Pictures coming soon!' />;
+     image = "./assets/pet-photo-shoot.jpeg"
    }
     results.innerHTML += `
  <div class="card mb-3 shadow p-3 mb-5 mb-5">
@@ -66,7 +67,7 @@ function updateUI(animalInfo) {
     <div class="accordion" id="chapters">
     <div class="accordion-item">
       <h2 class="accordion-header" id="heading-1">
-      <button class="accordion-button btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="false" aria-controls="chapter-1">Learn more about ${animal.name}.</button></h2>
+      <button style="background-color:#aa6820 color: white" class="accordion-button btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#chapter-1" aria-expanded="false" aria-controls="chapter-1">Learn more about ${animal.name}.</button></h2>
 
         <div id="chapter-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-parent="#chapters">
           <div class="accordion-body">
