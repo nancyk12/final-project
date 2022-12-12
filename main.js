@@ -33,20 +33,18 @@ function updateUI(animalInfo) {
   results.innerHTML = '<div></div>';
   animalInfo.forEach(animal => {
 
-    let noPhoto = '<a><img src="assets/pet-photo-shoot.jpeg"/></a>'
-
-    let image;
-    if (animal.photos.length > 0) {
-      image = animal.photos[0].medium;
-    } else {
-      image = '<a><img src="assets/pet-photo-shoot.jpeg"/></a>';
-    };
-    
+   // let noPhoto = '<img src="assets/pet-photo-shoot.jpeg">'
+   let image;
+   if (animal.photos.length > 0) {
+     image = animal.photos[0].medium;
+   } else {
+     //image = <img src='assets/No-animal-image-available.png' border='0' alt='This pet is preparing for their photo shoot! Pictures coming soon!' />;
+   }
     results.innerHTML += `
  <div class="card mb-3 shadow p-3 mb-5 mb-5">
    <div class="row g-0">
      <div class="col-md-4">
-      <img  class="img-fluid rounded-start" id="image" src="${image}" alt="Pet Photo">
+      <img  class="img-fluid rounded-start" id="image" src="${image}" alt="Animal Photo">
      </div>
       <div class="col-md-8">
         <div class="card-body">
