@@ -77,11 +77,11 @@ function updateUI(animalInfo) {
     
           <h4>${animal.name}'s Attributes</h4>  
             <ul class="list-group">
-            <li class="list-group-item">Declawed: ${animal.attributes.declawed}</li>
-            <li class="list-group-item">House trained: ${animal.attributes.house_trained}</li>
-            <li class="list-group-item">Shots Current: ${animal.attributes.shots_current}</li>
-            <li class="list-group-item">Spayed/Neutered: ${animal.attributes.spayed_neutered}</li>
-            <li class="list-group-item">Special Needs: ${animal.attributes.special_needs}</li>
+            <li class="list-group-item">Declawed: ${animal.attributes.declawed ? 'Yes' : 'No'}</li>
+            <li class="list-group-item">House trained: ${animal.attributes.house_trained ? 'Yes' : 'No'}</li>
+            <li class="list-group-item">Shots Current: ${animal.attributes.shots_current ? 'Yes' : 'No'}</li>
+            <li class="list-group-item">Spayed/Neutered: ${animal.attributes.spayed_neutered ? 'Yes' : 'No'}</li>
+            <li class="list-group-item">Special Needs: ${animal.attributes.special_needs ? 'Yes' : 'No'}</li>
             </ul>
             <a href="${animal.url}" target="_blank" rel="nopener noreferrer"><img src="assets/Adopt-Me-Button.png" id="adopt-me"></a>
           </div>
