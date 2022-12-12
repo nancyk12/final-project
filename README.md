@@ -1,46 +1,17 @@
-# Final Project
+Adopt-A-Pet web app 
 
-In this project, you'll build a web application that does anything you want! 
+This is a responsive web app that helps the user locate adoptable pets in their area. The user simply chooses from cats, dogs, birds, and barnyard from the dropdown menu, and enters their zip code. 
 
-It must meet the project requirements below, but beyond that, feel free to use your creativity to decide on what your app will do.
+The app returns information 20 cards with the name, age, breed, gender, address, phone number, email, and shelter ID of an animal. The user can click on a card and get more information on that animal, and then click the “Adopt-Me” button to get to the animal’s Petfinder.com profile page. 
 
-## Requirements
+The web app uses the petfinder.com API.
 
-* **Your app has at least three distinct "features"**
-  * If you are building a travel planning application, one feature could be allowing users to create a new trip
-* Your project has at least ten commits in git
-* Your app is mobile responsive
-* Your project contains a `README.md` file that explains what your project is and how to use it
-* Your project is hosted on GitHub pages
-* Your code is clean
-  * Proper indentation
-  * No unnecessary repetition
-  * Variables as camelCase
+Bootstrap was used for the styling, and there is a CSS style sheet.
 
-## Project ideas
+In order to run the petfinder.com API, several json packages had to be installed. 
 
-* Travel planner
-* Budget manager
-* Resume builder
-* Shift scheduling app
-* Chat bot
-* Music making app
-* Games
-  * PacMan
-  * Chess
-* Do something with an external API: https://github.com/public-apis/public-apis
-  * Slack / discord bot
-  * Recreate Reddit
-  * Pokedex
-
-And so many more possibilities!
-
-## Recommendations
-
-* Start out by creating your project's foundation in HTML.
-* Frequently make commmits in git to save your progress.
-* Build one piece of Javascript functionality at a time, testing each change you make with `console.log`. 
-* Keep your code meticulously organized as you go. 
-* Use proper indentation, whitespace, and comments. 
-* Try to write a function for each separate piece of functionality that exists in your code. This will make your code "modular" and easier to build off of.
-* If you find yourself repeating code, think about how you could use either a loop or a new function to eliminate the repitition.
+Resources: 
+DIY favicon link: www.favicon.cc
+CanStockPhoto.com.
+https://www.youtube.com/watch?v=XH7ha_MNnXc
+https://github.com/bradtraversy/find_a_pet

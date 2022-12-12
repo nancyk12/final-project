@@ -8,16 +8,17 @@ body {
   margin: 10px auto 0 auto;
   }
 
-#cat {
-  /*list-style-image: (assets/cat.svg);*/
-    /* OR */
-  list-style-type: '👉';
-  padding-inline-start: 1ch;
-}
+#header-logo {
+  width: 30%;
+}  
+/*
+img {
+  background-image: 'pet-photo-shoot.jpeg';
+}  */
 
-.accordion{
+/*.accordion{
 background-color: #beae9d;
-}
+}*/
   .accordion-button {
     z-index: 3;
     background-color: #e7c9a9;

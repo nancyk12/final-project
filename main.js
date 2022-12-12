@@ -33,20 +33,20 @@ function updateUI(animalInfo) {
   results.innerHTML = '<div></div>';
   animalInfo.forEach(animal => {
 
+    //let noPhoto = '<img src="pet-photo-shoot.jpeg">'
+
     let image;
     if (animal.photos.length > 0) {
-      image = animal.photos[0] ? animal.photos[0].medium : "";
+      image = animal.photos[0] ? animal.photos[0].medium : `${noPhoto}`;
     } else {
-      image = "<a href='https://www.petfinder.com'><img src='https://www.petfinder.com//banner-images/widgets/40.jpg' border='0' alt='Petfinder Logo, Adopt a homeless pet' /></a>";
+      image = '<img src="pet-photo-shoot.jpeg">';
     };
-
-  
     
     results.innerHTML += `
  <div class="card mb-3 shadow p-3 mb-5 mb-5">
    <div class="row g-0">
      <div class="col-md-4">
-      <img src="${image}" class="img-fluid rounded-start" alt="animal-image">
+      <img src="${image}" alt="Pet Photo" onerror="this.src='pet-photo-shoot.jpeg'" class="img-fluid rounded-start" >
      </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -72,9 +72,9 @@ function updateUI(animalInfo) {
 
         <div id="chapter-1" class="accordion-collapse collapse" aria-labelledby="heading-1" data-bs-parent="#chapters">
           <div class="accordion-body">
-          <h4>${animal.name}'s Description</h4>
-          <p>${animal.description}</p>
-    
+          <h4>${animal.name}'s Description</h4>    
+          ${animal.description ?`<p>${animal.description}</p>` : `<p>${animal.name} is available for adoption.</p>`}
+
           <h4>${animal.name}'s Attributes</h4>  
             <ul class="list-group">
             <li class="list-group-item">Declawed: ${animal.attributes.declawed ? 'Yes' : 'No'}</li>
