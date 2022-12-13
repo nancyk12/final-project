@@ -74,7 +74,7 @@ function updateUI(animalInfo) {
 
           <h4>${animal.name}'s Attributes</h4>  
             <ul class="list-group">
-            <li class="list-group-item">Declawed: ${animal.attributes.declawed ? 'Yes' : 'No'}</li>
+            ${animal.attributes.declawed ?` <li class="list-group-item">Declawed: ${animal.attributes.declawed ? 'Yes' : 'No'}</li>` : `` }
             <li class="list-group-item">House trained: ${animal.attributes.house_trained ? 'Yes' : 'No'}</li>
             <li class="list-group-item">Shots Current: ${animal.attributes.shots_current ? 'Yes' : 'No'}</li>
             <li class="list-group-item">Spayed/Neutered: ${animal.attributes.spayed_neutered ? 'Yes' : 'No'}</li>
