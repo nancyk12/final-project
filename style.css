@@ -9,16 +9,13 @@ body {
   }
 
 #header-logo {
-  width: 30%;
+  width: 40%;
 }  
-/*
-img {
-  background-image: 'pet-photo-shoot.jpeg';
-}  */
 
-/*.accordion{
+
+.accordion{
 background-color: #beae9d;
-}*/
+}
   .accordion-button {
     z-index: 3;
     background-color: #e7c9a9;

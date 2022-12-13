@@ -33,9 +33,7 @@ function updateUI(animalInfo) {
   results.innerHTML = '<div></div>';
   animalInfo.forEach(animal => {
 
-   // let noPhoto = '<img src="assets/pet-photo-shoot.jpeg">'
    let image; 
-   //console.log(animal.photos[0].medium);
    if (animal.photos.length > 0) {
      image = animal.photos[0].medium;
    } else {
